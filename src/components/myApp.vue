@@ -43,6 +43,7 @@
               <h2>网站统计</h2>
             </div>
             <div>
+              <div id="myChart" :style="{width: '900px', height: '500px'}"></div>
               <!-- <div class=""></div> -->
               <!-- <h2 id="bar">
                 <a href="#bar">Bar chart <small>(with async data &amp; custom theme)</small></a>
@@ -171,13 +172,13 @@ export default {
     // let dataChart3 = this.$echarts.init(document.getElementById('dataChart3'));
     // let dataChart4 = this.$echarts.init(document.getElementById('dataChart4'));
     // that.myChart.on('legendselectchanged', function (params) {
-        // 获取点击图例的选中状态
-        // let isSelected = params.selected[params.name];
-        // that.selected = params.selected;
-        // 在控制台中打印
-        // console.log((isSelected ? '选中了' : '取消选中了') + '图例' + params.name);
-        // 打印所有图例的状态
-        // console.log(params.selected);
+    //     // 获取点击图例的选中状态
+    //     let isSelected = params.selected[params.name];
+    //     that.selected = params.selected;
+    //     // 在控制台中打印
+    //     console.log((isSelected ? '选中了' : '取消选中了') + '图例' + params.name);
+    //     // 打印所有图例的状态
+    //     console.log(params.selected);
     // });
   },
   methods: {
