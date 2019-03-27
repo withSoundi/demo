@@ -42,30 +42,9 @@
             <div class="smallTitle">
               <h2>网站统计</h2>
             </div>
-            <div>
-              <div id="myChart" :style="{width: '900px', height: '500px'}"></div>
-              <!-- <div class=""></div> -->
-              <!-- <h2 id="bar">
-                <a href="#bar">Bar chart <small>(with async data &amp; custom theme)</small></a>
-                <button :class="{
-                  round: true,
-                  expand: expand.bar
-                }" @click="expand.bar = !expand.bar" aria-label="toggle"></button>
-              </h2>
-              <section v-if="expand.bar">
-                <figure>
-                  <chart
-                    :options="bar"
-                    :init-options="initOptions"
-                    ref="bar"
-                    theme="ovilia-green"
-                    autoresize
-                  />
-                </figure>
-                <p v-if="seconds <= 0"><small>Loaded.</small></p>
-                <p v-else><small>Data coming in <b>{{ seconds }}</b> second{{ seconds > 1 ? 's' : '' }}...</small></p>
-                <p><button @click="refresh" :disabled="seconds > 0">Refresh</button></p>
-              </section> -->
+            <div :style="{width: '800px', height: '390px'}">
+              <ve-line :data="chartData"></ve-line>
+              <!-- <div id="myChart" :style="{width: '1000px', height: '300px'}"></div> -->
             </div>
           </div>
           <div class="textShow">
@@ -73,9 +52,33 @@
               <h2>数据类型</h2>
             </div>
             <div>
-              <li class="dataList">
-                
-              </li>
+              <el-row>
+                <el-col :span="12">
+                  <div :style="{width: '300px', height: '350px'}">
+                    <ve-ring :data="typeData1"></ve-ring>
+                  </div>
+                </el-col>
+                <el-col :span="12">
+                  <div :style="{width: '300px', height: '350px'}">
+                    <ve-ring :data="typeData1"></ve-ring>
+                  </div>
+                </el-col>
+              </el-row>
+              <el-row>
+                <el-col :span="12">
+                  <div :style="{width: '300px', height: '350px'}">
+                    <ve-pie :data="typeData3" :settings="chartSettings"></ve-pie>
+                  </div>
+                </el-col>
+                <el-col :span="12">
+                  <div :style="{width: '300px', height: '350px'}">
+                    <ve-histogram :data="typeData4"></ve-histogram>
+                  </div>
+                </el-col>
+              </el-row>
+              <h3>地域分析</h3>
+              <div><ve-map :data="mapData"></ve-map></div>
+              <el-row></el-row>
             </div>
           </div>
           <div class="textShow">
@@ -83,7 +86,7 @@
               <h2>关键词云</h2>
             </div>
             <div>
-              <div></div>
+              <div><ve-wordcloud :data="wordData"></ve-wordcloud></div>
             </div>
           </div>
           <div class="textShow">
@@ -107,7 +110,7 @@
               <h2>传播路径</h2>
             </div>
             <div>
-              <div></div>
+              <div><ve-tree :data="treeData"></ve-tree></div>
             </div>
           </div>
           <div class="textShow">
@@ -141,17 +144,88 @@
 </template>
 
 <script>
+const treeData = {
+  name: 'f',
+  value: 1,
+  link: 'https://ele.me',
+  children: [
+    {
+      name: 'a',
+      value: 1,
+      link: 'https://ele.me',
+      children: [
+        {
+          name: 'a-a',
+          link: 'https://ele.me',
+          value: 2
+        },
+        {
+          name: 'a-b',
+          link: 'https://ele.me',
+          value: 2
+        }
+      ]
+    },
+    {
+      name: 'b',
+      value: 1,
+      link: 'https://ele.me',
+      children: [
+        {
+          name: 'b-a',
+          link: 'https://ele.me',
+          value: 2
+        },
+        {
+          name: 'b-b',
+          link: 'https://ele.me',
+          value: 2
+        }
+      ]
+    },
+    {
+      name: 'c',
+      value: 3,
+      link: 'https://ele.me',
+      children: [
+        {
+          name: 'c-a',
+          link: 'https://ele.me',
+          value: 4
+        },
+        {
+          name: 'c-b',
+          link: 'https://ele.me',
+          value: 2
+        }
+      ]
+    },
+    {
+      name: 'd',
+      value: 3,
+      link: 'https://ele.me',
+      children: [
+        {
+          name: 'd-a',
+          link: 'https://ele.me',
+          value: 4
+        },
+        {
+          name: 'd-b',
+          link: 'https://ele.me',
+          value: 2
+        }
+      ]
+    }
+  ]
+}
 export default {
   name: 'myApp',
-  components: {
-    // chart: Echarts
-  },
   props: {
     title: String,
     description: String,
   },
   data() {
-    // let options = qs.parse(location.search, { ignoreQueryPrefix: true })
     return {
       trend: [{
         trendContent: '【#16亿扶贫路偷工减料# 整改就是刷遍涂料？[怒]】国家投资近16亿的甘肃扶贫路，竟遭偷工减料！双层钢筋变单层，路基裂缝随处可见！隧道上方是大山，隐患不堪设想！整改就是刷了遍涂料…甘肃公路管理局副处长杨爱明称，我没空上去看去…甘肃交通运输厅领导不见记者，想待着就待着，不想待着就走”？！[微信]',
@@ -159,92 +233,183 @@ export default {
       }, {
         trendContent: '怒！钢筋双层变单层，“整改”只是刷涂料，这就是16亿建成的“扶贫路”？！[微信]',
         timestamp: '2019-03-20 10:00'
-      }]
+      }],
+      chartData: {
+          columns: ['日期', '访问用户', '下单用户', '下单率'],
+          rows: [
+            { '日期': '1/1', '访问用户': 1393, '下单用户': 1093, '下单率': 0.32 },
+            { '日期': '1/2', '访问用户': 3530, '下单用户': 3230, '下单率': 0.26 },
+            { '日期': '1/3', '访问用户': 2923, '下单用户': 2623, '下单率': 0.76 },
+            { '日期': '1/4', '访问用户': 1723, '下单用户': 1423, '下单率': 0.49 },
+            { '日期': '1/5', '访问用户': 3792, '下单用户': 3492, '下单率': 0.323 },
+            { '日期': '1/6', '访问用户': 4593, '下单用户': 4293, '下单率': 0.78 }
+          ]
+      },
+      typeData1: {
+          columns: ['日期', '访问用户'],
+          rows: [
+            { '日期': '1/1', '访问用户': 1393 },
+            { '日期': '1/2', '访问用户': 3530 },
+            { '日期': '1/3', '访问用户': 2923 },
+            { '日期': '1/4', '访问用户': 1723 },
+            { '日期': '1/5', '访问用户': 3792 },
+            { '日期': '1/6', '访问用户': 4593 }
+          ]
+      },
+      typeData3: {
+        columns: ['日期', '访问用户'],
+          rows: [
+            { '日期': '1/1', '访问用户': 1393 },
+            { '日期': '1/2', '访问用户': 3530 },
+            { '日期': '1/3', '访问用户': 2923 },
+            { '日期': '1/4', '访问用户': 1723 },
+            { '日期': '1/5', '访问用户': 3792 },
+            { '日期': '1/6', '访问用户': 4593 }
+          ]
+      },
+      typeData4: {
+        columns: ['日期', '访问用户', '下单用户', '下单率'],
+          rows: [
+            { '日期': '1/1', '访问用户': 1393, '下单用户': 1093, '下单率': 0.32 },
+            { '日期': '1/2', '访问用户': 3530, '下单用户': 3230, '下单率': 0.26 },
+            { '日期': '1/3', '访问用户': 2923, '下单用户': 2623, '下单率': 0.76 },
+            { '日期': '1/4', '访问用户': 1723, '下单用户': 1423, '下单率': 0.49 },
+            { '日期': '1/5', '访问用户': 3792, '下单用户': 3492, '下单率': 0.323 },
+            { '日期': '1/6', '访问用户': 4593, '下单用户': 4293, '下单率': 0.78 }
+          ]
+      },
+      wordData: {
+          columns: ['word', 'count'],
+          rows: getRows()
+      },
+      mapData: {
+        columns: ['位置', '税收', '人口', '面积'],
+          rows: [
+            { '位置': '吉林', '税收': 123, '人口': 123, '面积': 92134 },
+            { '位置': '北京', '税收': 1223, '人口': 2123, '面积': 29234 },
+            { '位置': '上海', '税收': 2123, '人口': 1243, '面积': 94234 },
+            { '位置': '浙江', '税收': 4123, '人口': 5123, '面积': 29234 }
+          ]
+      },
+      treeData: {
+        columns: ['name', 'value'],
+        rows: [
+          {
+            name: 'tree1',
+            value: [treeData]
+          }
+        ]
+      }
     }
   },
-  mounted: function() {
-    let that = this;
-    let myChart = this.$echarts.init(document.getElementById('myChart'));
-    that.myChart = myChart;
-    that.initCharts();
-    // let dataChart1 = this.$echarts.init(document.getElementById('dataChart1'));
-    // let dataChart2 = this.$echarts.init(document.getElementById('dataChart2'));
-    // let dataChart3 = this.$echarts.init(document.getElementById('dataChart3'));
-    // let dataChart4 = this.$echarts.init(document.getElementById('dataChart4'));
-    // that.myChart.on('legendselectchanged', function (params) {
-    //     // 获取点击图例的选中状态
-    //     let isSelected = params.selected[params.name];
-    //     that.selected = params.selected;
-    //     // 在控制台中打印
-    //     console.log((isSelected ? '选中了' : '取消选中了') + '图例' + params.name);
-    //     // 打印所有图例的状态
-    //     console.log(params.selected);
-    // });
-  },
-  methods: {
-    initCharts: function() {
-      let option = {
-    tooltip: {
-        trigger: 'axis'
-    },
-    legend: {
-        data:['邮件营销','联盟广告','视频广告','直接访问','搜索引擎']
-    },
-    grid: {
-        left: '3%',
-        right: '4%',
-        bottom: '3%',
-        containLabel: true
-    },
-    toolbox: {
-        feature: {
-            saveAsImage: {}
-        }
-    },
-    xAxis: {
-        type: 'category',
-        boundaryGap: false,
-        data: ['周一','周二','周三','周四','周五','周六','周日']
-    },
-    yAxis: {
-        type: 'value'
-    },
-    series: [
-        {
-            name:'邮件营销',
-            type:'line',
-            stack: '总量',
-            data:[120, 132, 101, 134, 90, 230, 210]
-        },
-        {
-            name:'联盟广告',
-            type:'line',
-            stack: '总量',
-            data:[220, 182, 191, 234, 290, 330, 310]
-        },
-        {
-            name:'视频广告',
-            type:'line',
-            stack: '总量',
-            data:[150, 232, 201, 154, 190, 330, 410]
-        },
-        {
-            name:'直接访问',
-            type:'line',
-            stack: '总量',
-            data:[320, 332, 301, 334, 390, 330, 320]
-        },
-        {
-            name:'搜索引擎',
-            type:'line',
-            stack: '总量',
-            data:[820, 932, 901, 934, 1290, 1330, 1320]
-        }
-    ]
-};
-      this.myChart.setOption(option);
-    }
-  }
+}
+function getRows () {
+  return [{
+    'word': 'visualMap',
+    'count': 22199
+  }, {
+    'word': 'continuous',
+    'count': 10288
+  }, {
+    'word': 'contoller',
+    'count': 620
+  }, {
+    'word': 'series',
+    'count': 274470
+  }, {
+    'word': 'gauge',
+    'count': 12311
+  }, {
+    'word': 'detail',
+    'count': 1206
+  }, {
+    'word': 'piecewise',
+    'count': 4885
+  }, {
+    'word': 'textStyle',
+    'count': 32294
+  }, {
+    'word': 'markPoint',
+    'count': 18574
+  }, {
+    'word': 'pie',
+    'count': 38929
+  }, {
+    'word': 'roseType',
+    'count': 969
+  }, {
+    'word': 'label',
+    'count': 37517
+  }, {
+    'word': 'emphasis',
+    'count': 12053
+  }, {
+    'word': 'yAxis',
+    'count': 57299
+  }, {
+    'word': 'name',
+    'count': 15418
+  }, {
+    'word': 'type',
+    'count': 22905
+  }, {
+    'word': 'gridIndex',
+    'count': 5146
+  }, {
+    'word': 'normal',
+    'count': 49487
+  }, {
+    'word': 'itemStyle',
+    'count': 33837
+  }, {
+    'word': 'min',
+    'count': 4500
+  }, {
+    'word': 'silent',
+    'count': 5744
+  }, {
+    'word': 'animation',
+    'count': 4840
+  }, {
+    'word': 'offsetCenter',
+    'count': 232
+  }, {
+    'word': 'inverse',
+    'count': 3706
+  }, {
+    'word': 'borderColor',
+    'count': 4812
+  }, {
+    'word': 'markLine',
+    'count': 16578
+  }, {
+    'word': 'line',
+    'count': 76970
+  }, {
+    'word': 'radiusAxis',
+    'count': 6704
+  }, {
+    'word': 'radar',
+    'count': 15964
+  }, {
+    'word': 'data',
+    'count': 60679
+  }, {
+    'word': 'dataZoom',
+    'count': 24347
+  }, {
+    'word': 'tooltip',
+    'count': 43420
+  }, {
+    'word': 'toolbox',
+    'count': 25222
+  }, {
+    'word': 'geo',
+    'count': 16904
+  }, {
+    'word': 'parallelAxis',
+    'count': 4029
+  }]
 }
 </script>
 
