@@ -59,16 +59,16 @@ def get_data(name):
     }
     
     # 网站统计
-    rows = {
+    rows = [{
         "sensitive":random.randint(0,9)/10.0
-    }
+    }]
     emotion = {
         "columns": "sensitive",
         "rows":rows
     }
-    rows = {
+    rows = [{
         "overseas":random.randint(0,9)/10.0
-    }
+    }]
     # 情感分析
     overseas = {
         "columns": "overseas",
@@ -76,7 +76,7 @@ def get_data(name):
     }
     # 境内外分布
 
-    rows = {
+    rows = [{
         "all":random.randint(0,9), 
         "client":random.randint(0,9),
         "press":random.randint(0,9),
@@ -88,7 +88,7 @@ def get_data(name):
         "site":random.randint(0,9),
         "news":random.randint(0,9),
         "gov":random.randint(0,9)
-    } 
+    }] 
     mediasource = {
         "columns" : [
             "all", 
