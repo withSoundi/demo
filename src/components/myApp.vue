@@ -45,7 +45,6 @@
             </div>
             <div :style="{width: '800px', height: '390px'}">
               <ve-line :data="results.chartData"></ve-line>
-              {{ results.chartData }}
               <!-- <div id="myChart" :style="{width: '1000px', height: '300px'}"></div> -->
             </div>
           </div>
@@ -57,24 +56,24 @@
               <el-row>
                 <el-col :span="10" :offset="1">
                   <div :style="{width: '300px', height: '350px'}">
-                    <ve-ring :data="typeData1"></ve-ring>
+                    <ve-ring :data="results.typeData1"></ve-ring>
                   </div>
                 </el-col>
                 <el-col :span="10" :offset="2">
                   <div :style="{width: '300px', height: '350px'}">
-                    <ve-ring :data="typeData1"></ve-ring>
+                    <ve-ring :data="results.typeData2"></ve-ring>
                   </div>
                 </el-col>
               </el-row>
               <el-row>
                 <el-col :span="10" :offset="1">
                   <div :style="{width: '300px', height: '350px'}">
-                    <ve-pie :data="typeData3"></ve-pie>
+                    <ve-pie :data="results.typeData3"></ve-pie>
                   </div>
                 </el-col>
                 <el-col :span="10" :offset="2">
                   <div :style="{width: '300px', height: '350px'}">
-                    <ve-histogram :data="typeData4"></ve-histogram>
+                    <ve-histogram :data="results.typeData4"></ve-histogram>
                   </div>
                 </el-col>
               </el-row>
@@ -262,6 +261,14 @@ export default {
         trend: null
       },{
         chartData: null
+      },{
+        typeData1: null
+      },{
+        typeData2: null
+      },{
+        typeData3: null
+      },{
+        typeData4: null
       }]
     }
   },
