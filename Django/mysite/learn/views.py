@@ -86,31 +86,22 @@ def get_data(name):
     # 境内外分布
 
     rows = [{
-        "all":random.randint(0,9), 
-        "client":random.randint(0,9),
-        "press":random.randint(0,9),
-        "blog":random.randint(0,9),
-        "media":random.randint(0,9),
-        "forum":random.randint(0,9),
-        "video":random.randint(0,9),
-        "weibo":random.randint(0,9),
-        "site":random.randint(0,9),
-        "news":random.randint(0,9),
-        "gov":random.randint(0,9)
-    }] 
+        "type":"all","value":random.randint(0,9)},{ 
+        "type":"client","value":random.randint(0,9)},{ 
+        "type":"press","value":random.randint(0,9)},{
+        "type":"blog","value":random.randint(0,9)},{
+        "type":"media","value":random.randint(0,9)},{
+        "type":"forum","value":random.randint(0,9)},{
+        "type":"video","value":random.randint(0,9)},{
+        "type":"weibo","value":random.randint(0,9)},{
+        "type":"site","value":random.randint(0,9)},{
+        "type":"news","value":random.randint(0,9)},{
+        "type":"gov","value":random.randint(0,9)}
+    ] 
     mediasource = {
         "columns" : [
-            "all", 
-            "client",
-            "press",
-            "blog",
-            "media",
-            "forum",
-            "video",
-            "weibo",
-            "site",
-            "news",
-            "gov"
+            "type",
+            "value"
             ],
             "rows":rows
         }
