@@ -60,50 +60,48 @@ def get_data(name):
     
     # 网站统计
     rows = [{
-        "sensitive":random.randint(0,9),
-        "insensitive":random.randint(0,9)
-    }]
+        "type":"sensitive",
+        "value":random.randint(0,9)
+        },{
+        "type":"insensitive",
+        "value":random.randint(0,9)
+        }
+        ]
     emotion = {
-        "columns": ["sensitive","insensitive"],
+        "columns": ["type","value"],
         "rows":rows
     }
     rows = [{
-        "overseas":random.randint(0,9),
-        "inland":random.randint(0,9)
+        "type":"overseas",
+        "value":random.randint(0,9)
+        },{
+        "type":"inland",
+        "value":random.randint(0,9)
     }]
     # 情感分析
     overseas = {
-        "columns": ["overseas","inland"],
+        "columns": ["type","value"],
         "rows":rows
     }
     # 境内外分布
 
     rows = [{
-        "all":random.randint(0,9), 
-        "client":random.randint(0,9),
-        "press":random.randint(0,9),
-        "blog":random.randint(0,9),
-        "media":random.randint(0,9),
-        "forum":random.randint(0,9),
-        "video":random.randint(0,9),
-        "weibo":random.randint(0,9),
-        "site":random.randint(0,9),
-        "news":random.randint(0,9),
-        "gov":random.randint(0,9)
-    }] 
+        "type":"all","value":random.randint(0,9)},{ 
+        "type":"client","value":random.randint(0,9)},{ 
+        "type":"press","value":random.randint(0,9)},{
+        "type":"blog","value":random.randint(0,9)},{
+        "type":"media","value":random.randint(0,9)},{
+        "type":"forum","value":random.randint(0,9)},{
+        "type":"video","value":random.randint(0,9)},{
+        "type":"weibo","value":random.randint(0,9)},{
+        "type":"site","value":random.randint(0,9)},{
+        "type":"news","value":random.randint(0,9)},{
+        "type":"gov","value":random.randint(0,9)}
+    ] 
     mediasource = {
         "columns" : [
-            "all", 
-            "client",
-            "press",
-            "blog",
-            "media",
-            "forum",
-            "video",
-            "weibo",
-            "site",
-            "news",
-            "gov"
+            "type",
+            "value"
             ],
             "rows":rows
         }
