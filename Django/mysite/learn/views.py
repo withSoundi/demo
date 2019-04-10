@@ -63,7 +63,7 @@ def get_data(name):
         "sensitive":random.randint(0,9)/10.0
     }]
     emotion = {
-        "columns": "sensitive",
+        "columns": ["sensitive"],
         "rows":rows
     }
     rows = [{
@@ -71,7 +71,7 @@ def get_data(name):
     }]
     # 情感分析
     overseas = {
-        "columns": "overseas",
+        "columns": ["overseas"],
         "rows":rows
     }
     # 境内外分布
