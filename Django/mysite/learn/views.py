@@ -60,18 +60,20 @@ def get_data(name):
     
     # 网站统计
     rows = [{
-        "sensitive":random.randint(0,9)/10.0
+        "sensitive":random.randint(0,9),
+        "insensitive":random.randint(0,9)
     }]
     emotion = {
-        "columns": ["sensitive"],
+        "columns": ["sensitive","insensitive"],
         "rows":rows
     }
     rows = [{
-        "overseas":random.randint(0,9)/10.0
+        "overseas":random.randint(0,9),
+        "inland":random.randint(0,9)
     }]
     # 情感分析
     overseas = {
-        "columns": ["overseas"],
+        "columns": ["overseas","inland"],
         "rows":rows
     }
     # 境内外分布
