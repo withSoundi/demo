@@ -18,13 +18,16 @@ def get_data(name):
     introduction = name
     # 事件简介
     trend = []
-    for i in range(2):
-        trend.append(name)
+    for i in range(5):
+        trend.append({
+            "trendContent":name,
+            "timestamp":i + 1
+        })
     # 事件走势
     rows = []
-    for i in range(2):
+    for i in range(10):
         rows.append({
-            "date":random.randint(0,9), 
+            "date":i + 1, 
             "all":random.randint(0,9),
             "client":random.randint(0,9),
             "press":random.randint(0,9),
@@ -56,15 +59,24 @@ def get_data(name):
     }
     
     # 网站统计
-    emotion = {
+    rows = {
         "sensitive":random.randint(0,9)/10.0
+    }
+    emotion = {
+        "columns": "sensitive",
+        "rows":rows
+    }
+    rows = {
+        "overseas":random.randint(0,9)/10.0
     }
     # 情感分析
     overseas = {
-        "overseas":random.randint(0,9)/10.0
+        "columns": "overseas",
+        "rows":rows
     }
     # 境内外分布
-    mediasource = {
+
+    rows = {
         "all":random.randint(0,9), 
         "client":random.randint(0,9),
         "press":random.randint(0,9),
@@ -76,10 +88,25 @@ def get_data(name):
         "site":random.randint(0,9),
         "news":random.randint(0,9),
         "gov":random.randint(0,9)
-    }
-    # 媒体来源占比
-
+    } 
+    mediasource = {
+        "columns" : [
+            "all", 
+            "client",
+            "press",
+            "blog",
+            "media",
+            "forum",
+            "video",
+            "weibo",
+            "site",
+            "news",
+            "gov"
+            ],
+            "rows":rows
+        }
     rows = []
+    # 媒体来源占比
     for i in range(2):
         rows.append(
             {
