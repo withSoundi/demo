@@ -78,14 +78,22 @@ def get_data(name):
         "gov":random.randint(0,9)
     }
     # 媒体来源占比
-    activity = []
+
+    rows = []
     for i in range(2):
-        activity.append(
+        rows.append(
             {
                 "name":name,
                 "num":random.randint(0,9)
             }
-        ) 
+        )
+    activity = {
+        "columns": [
+            "name",
+            "num"
+        ],
+        "rows":rows
+    }
     area = {
         "beijing":random.randint(0,9), 
         "shanghai":random.randint(0,9),
@@ -122,46 +130,81 @@ def get_data(name):
         "yunnan":random.randint(0,9),
         "zhejiang":random.randint(0,9)
     }
-    words = []
+    rows = []
     for i in range(2):
-        words.append(
-            {
-                "name":name,
-                "num":random.randint(0,9)
-            }
-        ) 
-    popular = []
-    for i in range(2):
-        popular.append(
+        rows.append(
             {
                 "name":name,
                 "num":random.randint(0,9)
             }
         )
-    newspoint = []
+    words = {
+        "columns":[
+            "name",
+            "num"
+        ],
+        "rows":rows
+    }
+    rows = []
     for i in range(2):
-        newspoint.append(
+        rows.append(
+            {
+                "name":name,
+                "num":random.randint(0,9)
+            }
+        )
+    popular = {
+        "columns":[
+            "name",
+            "num"
+        ],
+        "rows":rows
+    }
+    rows = []
+    for i in range(2):
+        rows.append(
             {
                 "name":name,
                 "num":random.randint(0,9)
             }
         ) 
-    forumpoint = []
+    newspoint = {
+        "columns":[
+            "name",
+            "num"
+        ],
+        "rows":rows
+    }
+    rows = []
     for i in range(2):
-        forumpoint.append(
+        rows.append(
             {
                 "name":name,
                 "num":random.randint(0,9)
             }     
         )
-    weibopoint = []
+    forumpoint = {
+        "columns":[
+            "name",
+            "num"
+        ],
+        "rows":rows
+    }
+    rows = []
     for i in range(2):
-        weibopoint.append(
+        rows.append(
             {
                 "name":name,
                 "num":random.randint(0,9)
             }   
-        )   
+        )  
+    weibopoint = {
+        "columns":[
+            "name",
+            "num"
+        ],
+        "rows":rows
+    }
     summary = name
     return json.dumps({
         "name":name,
