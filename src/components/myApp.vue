@@ -32,10 +32,11 @@
           <div class="block">
             <el-timeline>
               <el-timeline-item
-                v-for="(trendItem, index) in trend"
+                v-for="(trendItem, index) in results.trend"
                 :key="index"
                 :timestamp="trendItem.timestamp">
-                {{ trendItem.trendContent}}
+                {{ trendItem.trendContent }}
+                <!-- {{ trendItem }} -->
               </el-timeline-item>
             </el-timeline>
           </div>
@@ -45,7 +46,6 @@
             </div>
             <div :style="{width: '800px', height: '390px'}">
               <ve-line :data="results.chartData"></ve-line>
-              {{ results.chartData }}
               <!-- <div id="myChart" :style="{width: '1000px', height: '300px'}"></div> -->
             </div>
           </div>
@@ -56,31 +56,35 @@
             <div>
               <el-row>
                 <el-col :span="10" :offset="1">
-                  <div :style="{width: '300px', height: '350px'}">
-                    <ve-ring :data="typeData1"></ve-ring>
+                  <div :style="{width: '300px', height: '450px'}">
+                    <h3>情感分析</h3>
+                    <ve-ring :data="results.typeData1"></ve-ring>
                   </div>
                 </el-col>
                 <el-col :span="10" :offset="2">
-                  <div :style="{width: '300px', height: '350px'}">
-                    <ve-ring :data="typeData1"></ve-ring>
+                  <div :style="{width: '300px', height: '450px'}">
+                    <h3>境内外分布</h3>
+                    <ve-ring :data="results.typeData2"></ve-ring>
                   </div>
                 </el-col>
               </el-row>
               <el-row>
                 <el-col :span="10" :offset="1">
-                  <div :style="{width: '300px', height: '350px'}">
-                    <ve-pie :data="typeData3"></ve-pie>
+                  <div :style="{width: '300px', height: '450px'}">
+                    <h3>媒体来源占比</h3>
+                    <ve-pie :data="results.typeData3"></ve-pie>
                   </div>
                 </el-col>
                 <el-col :span="10" :offset="2">
-                  <div :style="{width: '300px', height: '350px'}">
-                    <ve-histogram :data="typeData4"></ve-histogram>
+                  <div :style="{width: '300px', height: '450px'}">
+                    <h3>媒体活跃度</h3>
+                    <ve-histogram :data="results.typeData4"></ve-histogram>
                   </div>
                 </el-col>
               </el-row>
               <h3>地域分析</h3>
               <el-col :offset="4">
-                <div><ve-map :data="mapData" :style="{width: '500px', height: '350px'}"></ve-map></div>
+                <div><ve-map :data="results.mapData" :style="{width: '500px', height: '350px'}"></ve-map></div>
               </el-col>
               <el-row></el-row>
             </div>
@@ -90,7 +94,7 @@
               <h2>关键词云</h2>
             </div>
             <div>
-              <div><ve-wordcloud :data="wordData"></ve-wordcloud></div>
+              <div><ve-wordcloud :data="results.wordData"></ve-wordcloud></div>
             </div>
           </div>
           <div class="textShow" id="06">
@@ -99,7 +103,7 @@
             </div>
             <div>
               <div class="hotMessage">
-                <el-table :data="tableData" style="width: 100%">
+                <el-table :data="results.tableData" style="width: 100%">
                   <el-table-column prop="hotTitle" label="标题" width="450"></el-table-column>
                   <el-table-column prop="hotSource" label="来源" width="130"></el-table-column>
                   <el-table-column prop="hotTime" label="时间" width="140"></el-table-column>
@@ -134,7 +138,7 @@
               <h2>传播路径</h2>
             </div>
             <div>
-              <div><ve-tree :data="treeData"></ve-tree></div>
+              <div><ve-tree :data="results.treeData"></ve-tree></div>
             </div>
           </div>
           <!-- <div class="textShow">
@@ -151,11 +155,11 @@
             </div>
             <div>
               <h3>新闻观点</h3>
-              <div><ve-bar :data="newsPoint"></ve-bar></div>
+              <div><ve-bar :data="results.newsPoint"></ve-bar></div>
               <h3>微博观点</h3>
-              <div><ve-bar :data="weiboPoint"></ve-bar></div>
+              <div><ve-bar :data="results.weiboPoint"></ve-bar></div>
               <h3>网民观点</h3>
-              <div><ve-pie :data="forumPoint"></ve-pie></div>
+              <div><ve-pie :data="results.forumPoint"></ve-pie></div>
             </div>
           </div>
           <div class="textShow" id="10">
@@ -163,7 +167,7 @@
               <h2>舆论总结</h2>
             </div>
             <div>
-              <div>{{ summary }}</div>
+              <div>{{ results.summary }}</div>
             </div>
           </div>
         </div>
@@ -262,6 +266,28 @@ export default {
         trend: null
       },{
         chartData: null
+      },{
+        typeData1: null
+      },{
+        typeData2: null
+      },{
+        typeData3: null
+      },{
+        typeData4: null
+      },{
+        mapData: null
+      },{
+        wordData: null
+      },{
+        tableData: null
+      },{
+        treeData: null
+      },{
+        newaPoint: null
+      },{
+        weiboPoint: null
+      },{
+        forumPoint: null
       }]
     }
   },
