@@ -121,41 +121,48 @@ def get_data(name):
         ],
         "rows":rows
     }
+    rows = [{
+        "type":"beijing","value":random.randint(0,9)},{
+        "type":"shanghai","value":random.randint(0,9)},{
+        "type":"tianjin","value":random.randint(0,9)},{
+        "type":"chongqing","value":random.randint(0,9)},{
+        "type":"xianggang","value":random.randint(0,9)},{
+        "type":"aomen","value":random.randint(0,9)},{
+        "type":"anhui","value":random.randint(0,9)},{
+        "type":"fujian","value":random.randint(0,9)},{
+        "type":"guangdong","value":random.randint(0,9)},{
+        "type":"guangxi","value":random.randint(0,9)},{
+        "type":"guizhou","value":random.randint(0,9)},{
+        "type":"gansu","value":random.randint(0,9)},{
+        "type":"hainan","value":random.randint(0,9)},{
+        "type":"hebei","value":random.randint(0,9)},{
+        "type":"henan","value":random.randint(0,9)},{
+        "type":"heilongjiang","value":random.randint(0,9)},{
+        "type":"hubei","value":random.randint(0,9)},{
+        "type":"hunan","value":random.randint(0,9)},{
+        "type":"jilin","value":random.randint(0,9)},{
+        "type":"jiangsu","value":random.randint(0,9)},{
+        "type":"jiangxi","value":random.randint(0,9)},{
+        "type":"liaoning","value":random.randint(0,9)},{
+        "type":"neimenggu","value":random.randint(0,9)},{
+        "type":"ningxia","value":random.randint(0,9)},{
+        "type":"qinghai","value":random.randint(0,9)},{
+        "type":"shanxi","value":random.randint(0,9)},{
+        "type":"shaanxi","value":random.randint(0,9)},{
+        "type":"shandong","value":random.randint(0,9)},{
+        "type":"sichuan","value":random.randint(0,9)},{
+        "type":"taiwan","value":random.randint(0,9)},{
+        "type":"xizang","value":random.randint(0,9)},{
+        "type":"xinjiang","value":random.randint(0,9)},{
+        "type":"yunnan","value":random.randint(0,9)},{
+        "type":"zhejiang","value":random.randint(0,9)
+    }]
     area = {
-        "beijing":random.randint(0,9), 
-        "shanghai":random.randint(0,9),
-        "tianjin":random.randint(0,9),
-        "chongqing":random.randint(0,9),
-        "xianggang":random.randint(0,9),
-        "aomen":random.randint(0,9),
-        "anhui":random.randint(0,9),
-        "fujian":random.randint(0,9),
-        "guangdong":random.randint(0,9),
-        "guangxi":random.randint(0,9),
-        "guizhou":random.randint(0,9),
-        "gansu":random.randint(0,9),
-        "hainan":random.randint(0,9),
-        "hebei":random.randint(0,9),
-        "henan":random.randint(0,9),
-        "heilongjiang":random.randint(0,9),
-        "hubei":random.randint(0,9),
-        "hunan":random.randint(0,9),
-        "jilin":random.randint(0,9),
-        "jiangsu":random.randint(0,9),
-        "jiangxi":random.randint(0,9),
-        "liaoning":random.randint(0,9),
-        "neimenggu":random.randint(0,9),
-        "ningxia":random.randint(0,9),
-        "qinghai":random.randint(0,9),
-        "shanxi":random.randint(0,9),
-        "shaanxi":random.randint(0,9),
-        "shandong":random.randint(0,9),
-        "sichuan":random.randint(0,9),
-        "taiwan":random.randint(0,9),
-        "xizang":random.randint(0,9),
-        "xinjiang":random.randint(0,9),
-        "yunnan":random.randint(0,9),
-        "zhejiang":random.randint(0,9)
+        "columns":[
+            "type",
+            "value"
+        ],
+        "rows":rows
     }
     rows = []
     for i in range(2):
