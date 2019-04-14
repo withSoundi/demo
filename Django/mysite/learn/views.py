@@ -179,21 +179,14 @@ def get_data(name):
         ],
         "rows":rows
     }
-    rows = []
+    popular = []
     for i in range(2):
-        rows.append(
-            {
-                "name":name,
-                "num":random.randint(0,9)
-            }
-        )
-    popular = {
-        "columns":[
-            "name",
-            "num"
-        ],
-        "rows":rows
-    }
+        popular.append({
+            "hotTitle":name,
+            "hotSource":name,
+            "hotTime":random.randint(0,9),
+            "hotNumber":random.randint(0,9)
+        })
     rows = []
     for i in range(2):
         rows.append(
