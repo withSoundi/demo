@@ -103,7 +103,7 @@
             </div>
             <div>
               <div class="hotMessage">
-                <el-table :data="results.tableData" style="width: 100%">
+                <el-table :data="results.popular" style="width: 100%">
                   <el-table-column prop="hotTitle" label="标题" width="450"></el-table-column>
                   <el-table-column prop="hotSource" label="来源" width="130"></el-table-column>
                   <el-table-column prop="hotTime" label="时间" width="140"></el-table-column>
