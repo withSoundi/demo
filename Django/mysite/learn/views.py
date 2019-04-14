@@ -122,40 +122,40 @@ def get_data(name):
         "rows":rows
     }
     rows = [{
-        "type":"beijing","value":random.randint(0,9)},{
-        "type":"shanghai","value":random.randint(0,9)},{
-        "type":"tianjin","value":random.randint(0,9)},{
-        "type":"chongqing","value":random.randint(0,9)},{
-        "type":"xianggang","value":random.randint(0,9)},{
-        "type":"aomen","value":random.randint(0,9)},{
-        "type":"anhui","value":random.randint(0,9)},{
-        "type":"fujian","value":random.randint(0,9)},{
-        "type":"guangdong","value":random.randint(0,9)},{
-        "type":"guangxi","value":random.randint(0,9)},{
-        "type":"guizhou","value":random.randint(0,9)},{
-        "type":"gansu","value":random.randint(0,9)},{
-        "type":"hainan","value":random.randint(0,9)},{
-        "type":"hebei","value":random.randint(0,9)},{
-        "type":"henan","value":random.randint(0,9)},{
-        "type":"heilongjiang","value":random.randint(0,9)},{
-        "type":"hubei","value":random.randint(0,9)},{
-        "type":"hunan","value":random.randint(0,9)},{
-        "type":"jilin","value":random.randint(0,9)},{
-        "type":"jiangsu","value":random.randint(0,9)},{
-        "type":"jiangxi","value":random.randint(0,9)},{
-        "type":"liaoning","value":random.randint(0,9)},{
-        "type":"neimenggu","value":random.randint(0,9)},{
-        "type":"ningxia","value":random.randint(0,9)},{
-        "type":"qinghai","value":random.randint(0,9)},{
-        "type":"shanxi","value":random.randint(0,9)},{
-        "type":"shaanxi","value":random.randint(0,9)},{
-        "type":"shandong","value":random.randint(0,9)},{
-        "type":"sichuan","value":random.randint(0,9)},{
-        "type":"taiwan","value":random.randint(0,9)},{
-        "type":"xizang","value":random.randint(0,9)},{
-        "type":"xinjiang","value":random.randint(0,9)},{
-        "type":"yunnan","value":random.randint(0,9)},{
-        "type":"zhejiang","value":random.randint(0,9)
+        "type":"北京","value":random.randint(0,9)},{
+        "type":"上海","value":random.randint(0,9)},{
+        "type":"天津","value":random.randint(0,9)},{
+        "type":"重庆","value":random.randint(0,9)},{
+        "type":"香港","value":random.randint(0,9)},{
+        "type":"澳门","value":random.randint(0,9)},{
+        "type":"安徽","value":random.randint(0,9)},{
+        "type":"福建","value":random.randint(0,9)},{
+        "type":"广东","value":random.randint(0,9)},{
+        "type":"广西","value":random.randint(0,9)},{
+        "type":"贵州","value":random.randint(0,9)},{
+        "type":"甘肃","value":random.randint(0,9)},{
+        "type":"海南","value":random.randint(0,9)},{
+        "type":"河北","value":random.randint(0,9)},{
+        "type":"河南","value":random.randint(0,9)},{
+        "type":"湖北","value":random.randint(0,9)},{
+        "type":"湖南","value":random.randint(0,9)},{
+        "type":"吉林","value":random.randint(0,9)},{
+        "type":"江苏","value":random.randint(0,9)},{
+        "type":"江西","value":random.randint(0,9)},{
+        "type":"辽宁","value":random.randint(0,9)},{
+        "type":"宁夏","value":random.randint(0,9)},{
+        "type":"青海","value":random.randint(0,9)},{
+        "type":"山西","value":random.randint(0,9)},{
+        "type":"陕西","value":random.randint(0,9)},{
+        "type":"山东","value":random.randint(0,9)},{
+        "type":"四川","value":random.randint(0,9)},{
+        "type":"台湾","value":random.randint(0,9)},{
+        "type":"西藏","value":random.randint(0,9)},{
+        "type":"新疆","value":random.randint(0,9)},{
+        "type":"云南","value":random.randint(0,9)},{
+        "type":"浙江","value":random.randint(0,9)},{
+        "type":"黑龙江","value":random.randint(0,9)},{
+        "type":"内蒙古","value":random.randint(0,9)
     }]
     area = {
         "columns":[
