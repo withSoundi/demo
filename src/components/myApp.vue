@@ -9,7 +9,7 @@
         <a href="#05"><el-col><el-button type="primary" plain>关键词云</el-button></el-col></a>
         <a href="#06"><el-col><el-button type="primary" plain>热门信息</el-button></el-col></a>
         <a href="#07"><el-col><el-button type="primary" plain>热点网民</el-button></el-col></a>
-        <a href="#08"><el-col><el-button type="primary" plain>传播路径</el-button></el-col></a>
+        <!-- <a href="#08"><el-col><el-button type="primary" plain>传播路径</el-button></el-col></a> -->
         <a href="#09"><el-col><el-button type="primary" plain>网民观点</el-button></el-col></a>
         <a href="#10"><el-col><el-button type="primary" plain>舆论总结</el-button></el-col></a>
       </el-col>
@@ -133,14 +133,14 @@
               </el-tabs>
             </div>
           </div>
-          <div class="textShow" id="08">
+          <!-- <div class="textShow" id="08">
             <div class="smallTitle">
               <h2>传播路径</h2>
             </div>
             <div>
               <div><ve-tree :data="results.treeData"></ve-tree></div>
             </div>
-          </div>
+          </div> -->
           <!-- <div class="textShow">
             <div class="smallTitle">
               <h2>相关词语</h2>
